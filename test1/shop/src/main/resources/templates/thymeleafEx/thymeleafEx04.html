@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>상품 리스트 출력 예제</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <td>순번</td>
+    <td>상품명</td>
+    <td>상품설명</td>
+    <td>가격</td>
+    <td>상품등록일</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="itemDto, status: ${itemDtoList}">
+    <!--
+    <td th:switch="${status.even}"> 내부에 tr이 아닌 스팬 태그로 정해줘서 다른 게 영향받지 않음
+       <span th:case=true>짝수</span>
+       <span th:case=false>홀수</span>
+    </td>
+    -->
+<!--  if else에서 else가 없고 unless로 씀  -->
+    <td th:if="${status.even}" th:text="짝수"></td> <!-- 순서로 본다. (첫번째 순서가 짝수인지..(인덱스 아님) -->
+    <td th:unless="${status.even}" th:text="홀수"></td>
+    <td th:text="${itemDto.itemNm}"></td>
+    <td th:text="${itemDto.itemDetail}"></td>
+    <td th:text="${itemDto.price}"></td>
+    <td th:text="${itemDto.regTime}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

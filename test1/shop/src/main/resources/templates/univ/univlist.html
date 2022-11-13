@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+  학교 리스트가 나올 페이지. (nftHome.html에서 본뜸)
+
+  <div class="row">
+<!--    <h2>테스트</h2>-->
+<!--    <span th:text="${univListDto.name}"></span>-->
+<!--    <a th:href="'/univlist/'+${univListDto.name}"><span th:text="${univListDto.name}"></span></a>-->
+<!--    <a th:href="@{/univlists(univ_param=${univListDto.name})}"><span th:text="${univListDto.name}"></span></a>-->
+
+<!--    univDtoList-->
+    <table border="1" class="table table-dark table-striped-columns">
+      <thead><td class="table-active" th:style="${'text-align:center; background-color:#20c997;'}">학교명</td></thead>
+      <tbody>
+        <tr th:each="univDto, status:${univListDtoList}">
+<!--            <td th:text="${univDto.name}"></td>-->
+<!--            <h2 th:with="${univDto.name}"></h2>-->
+<!--            <td><a th:href="@{/searchUniv/가천대학교}"><span th:text="${univDto.name}"></span></a></td>-->
+            <td th:style="${'text-align:center;'}"><a th:href="@{/searchUniv/{name}(name=${univDto.name})}"><span th:style="${'color:pink;'}" th:text="${univDto.name}"></span></a></td>
+
+            <!--            <td><a th:href="@{/univlists(univ_param=${univDto.name})}"><span th:text="${univDto.name}"></span></a></td>-->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+</html>

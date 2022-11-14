@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+  <div>금주 best3</div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <!--            <h2 th:style="${'color:navy'}" th:text="${univName[0]}+' 페이지입니다'"></h2> &lt;!&ndash; 학교 이름만 출력하기 &ndash;&gt;-->
+        <h5 class="card-title">글쓰기</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <!--            게시판으로 넘어가기 .... NFT_SearchUnivController에서 라우팅 -->
+        <a th:href="@{'/communityAll'+'/new'}" class="btn btn-danger">글쓰기</a>
+        <!--            <a th:href="@{/searchUniv/가천대학교}">-->
+      </div>
+    </div>
+  </div>
+
+
+  <table>
+    <thead>
+    <tr>
+      <th class="one wide">번호</th>
+      <th class="ten wide">글제목</th>
+      <th class="two wide">작성자</th>
+      <th class="three wide">작성일</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <!-- CONTENTS !-->
+    <tr th:each="board : ${boardList}">
+      <td>
+        <span th:text="${board.id}"></span>
+      </td>
+      <td>
+        <a th:href="@{'/post/' + ${board.id}}">
+          <span th:text="${board.title}"></span>
+        </a>
+      </td>
+      <td>
+        <span th:text="${board.writer}"></span>
+      </td>
+      <td>
+        <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</html>

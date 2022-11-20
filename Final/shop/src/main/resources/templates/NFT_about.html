@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+<!--  <h1>NFT Campus.를 소개합니다</h1>-->
+  <h1 th:style="${'color:#739BE1; text-shadow: 0px 4px 3px #B7A4EE; text-align:center;'}">NFT Campus.를 소개합니다</h1>
+<br><br>
+
+
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" th:style="${'background-color:pink; border-radius:3px; border:yellow;'}">
+          NFT Campus. 소개
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          <strong>NFT Campus.는</strong> 전국 대학생들이 NFT 디자인을 자유롭게 공유하고, 만들 수 있는 공간을 제공합니다. 각자 만든 디자인을 여러 대학교 학생 혹은 자대학 학생들과 공유하여 상상 못한 디자인으로 NFT를 만들어보세요. <code>정말 재미있는 작품이 나올 겁니다.</code> 마음 맞는 학생들끼리 같이 작업하여 대학생활을 꽉 채우시기를 NFT Campus.가 응원합니다!
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo" th:style="${'background-color:lightgreen; border-radius:3px; border:yellow;'}">
+          NFT란?
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+        <div class="accordion-body">
+          <strong>NFT(Non-fungible token)란 </strong> 대체 불가능한 토큰으로, 블록체인에 저장된 데이터 단위입니다. NFT는 고유하면서 상호 교환할 수 없는 토큰입니다. NFT는 영구적으로 블록체인에 남음으로써 고유성을 보장받을 수 있다는 것이 특징입니다.
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree" th:style="${'background-color:skyblue; border-radius:3px; border:yellow;'}">
+          NFT Campus. 후원 기업
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+        <div class="accordion-body">
+          <strong>NFT Campus.와 활발히 교류하는 기업입니다. </strong>
+          <br> Figma  <br> OpenSea
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</html>

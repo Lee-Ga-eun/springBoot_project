@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+
+<!-- 사용자 CSS 추가 -->
+<div layout:fragment="header" th:if="${loginSuccess}">
+<!--  <li class="nav-item">-->
+<!--    <a class="nav-link" href="/member/register">테스트</a>-->
+<!--  </li>-->
+  $(".nav-item").append("<li><a class="nav-link" href="/members/logout">테스트</a></li>")
+
+</div>
+
+
+<div layout:fragment="content">
+  <h1 th:style="${'color:#5AC8C8; text-shadow: 0px 4px 3px #DCFFDC; text-align:center;'}">NFT Campus.에 오신 것을 환영합니다</h1>
+  <br>
+<!--
+  <p th:if="${loginSuccess}" class="success" th:text="${loginSuccess}"></p>
+  <p th:if="${loginSuccess}" th:text="${loginSuccess[0]}+재학생"></p>
+  <p th:if="${loginSuccess}" th:text="${loginSuccess[1]}"></p>
+  <p th:if="${loginSuccess}" th:text="${loginSuccess[2]}"></p>
+-->
+
+  <div class="container-lg" style="display: block; padding: 30px 30px; border: 1px solid whitesmoke ;box-shadow: 7px 7px 7px 7px ghostwhite;
+">
+    <img th:src="@{/images/home.png}" style="height: 400px; width: 570px; display:inline-block;">
+<!--    <span th:style="${'display:inline-block;'}">로그실 수 있습니다></span>-->
+<!--    <span th:style="${'display:inline-block;'}">-->
+      <div class="card" style="width: 220px; display: inline-block; margin-left:20px;">
+      <div class="card-header" th:style="${'text-align:center; color:blue;'}">
+        MEMBER INFO.
+      </div>
+      <ul th:if="${loginSuccess}" class="list-group list-group-flush" >
+        <li class="list-group-item" th:if="${loginSuccess}" th:text="'대학교: '+${loginSuccess[0]}" th:style="${'text-align:center; color:black;'}"></li>
+        <li class="list-group-item" th:if="${loginSuccess}" th:text="'닉네임: '+${loginSuccess[1]}" th:style="${'text-align:center; color:black;'}"></li>
+        <li class="list-group-item" th:if="${loginSuccess}" th:text="'이메일: '+${loginSuccess[2]}" th:style="${'text-align:center; color:black;'}"></li>
+      </ul>
+    </div>
+  </div>
+<!--  </span>-->
+<br>
+  <br>
+  <div class="container text-center" th:style="${'background-color: light; text-color:red; text-decoration: none; border:1px;'}">
+    <p th:style="${'color:#497649;'}">NFT Campus에 가입한 대학교</p>
+    <div class="row row-cols-5" th:style="${'border:1px solid #7DBCBE;'}">
+      <div class="col" th:each="univDto, status:${univName}" th:style="${' padding:3px; border:1px solid #7DBCBE;color:#497649;'}">
+        <span href="..." th:text="${univDto}"></span>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+</html>

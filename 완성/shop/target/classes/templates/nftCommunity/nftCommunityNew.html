@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+    <!--  <div>전국 커뮤니티 게시판 글쓰기</div>-->
+    <h4 th:style="${'color:gray; text-shadow: 4px 4px 3px #FFE13C; text-align:center;'}">글쓰기/NFT 등록하기</h4>
+    <br>
+<!--    <form action="/communityAll/new" method="post"> &lt;!&ndash; SecurityConfig에서 csrf() disable을 해줘야 403에러가 없다 &ndash;&gt;-->
+        <form th:action="@{/searchUniv/{name}/board/new(name=${univName})}" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="제목"> <br>
+        <br>
+        <input type="text" name="writer" PLACEHOLDER="작성인"> <br>
+        <br>
+            <input type="text" name="univ" PLACEHOLDER="학교이름 (다음과 같은 형식으로 작성해주세요. EX: 가천대학교)" th:style="${'width:500px;'}"> <br>
+            <br>
+
+            <div>내용</div>
+        <textarea name="content" th:style="${'padding: 30px 30px; border-top: 1px solid #73B2B4	;border-bottom: 1px solid #73B2B4	; width:100%; height:300px;'}"></textarea><br>
+        <br>
+            <div class="form-group row">
+                <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 파일</strong></label>
+                <div class="col-sm-10">
+                    <div class="custom-file" id="inputFile">
+                        <input name="file" type="file" class="custom-file-input" id="customFile" />
+                        <label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
+                    </div>
+                </div>
+            </div>
+        <input type="submit" value="등록">
+    </form>
+
+    <script>
+        $('.custom-file-input').on('change', function () {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).siblings('.custom-file-label').addClass('selected').html(fileName);
+        });
+    </script>
+</div>
+
+</html>

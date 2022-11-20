@@ -1,0 +1,14 @@
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/component/BasicConfiguration.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/controller/UserBeanController.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/controller/DefaultGetController.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/ShopApplication.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/controller/DefaultReqController.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/component/Weapon.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/controller/DefaultRestController.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/entity/Item.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/controller/indexController.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/repository/ItemRepository.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/component/ShotGun.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/dto/UserDto.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/constant/ItemSellStatus.java
+/Users/lucy/SpringBootShopPJ/shop/src/main/java/com/shop/shop/controller/DefaultPostController.java

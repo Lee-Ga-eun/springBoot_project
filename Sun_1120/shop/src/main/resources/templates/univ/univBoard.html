@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+  <h2 th:text="${univName}+' 게시판'"></h2>
+  <div th:if="${post}" th:text="${post}+' 등록된 글'"></div>
+  <div th:if="${noPostMessage}" th:text="${noPostMessage}"></div>
+
+
+  <!--
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title" th:text="${post.title}"></h5>
+      <p class="card-text">
+        <small
+                class="text-muted"
+                th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"
+        ></small>
+      </p>
+      <p class="card-text" th:text="${post.content}"></p>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-auto mr-auto"></div>
+    <div class="col-auto">
+      <a class="btn btn-info" th:href="@{'/post/edit/' + ${post.id}}" role="button">수정</a>
+    </div>
+    <div class="col-auto">
+      <form id="delete-form" th:action="@{'/post/' + ${post.id}}" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <button id="delete-btn" type="submit" class="btn btn-danger">삭제</button>
+      </form>
+    </div>
+  </div>
+</div>
+-->
+</div>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+
+<div id="ranking">
+<!--  <div style="margin-bottom: 30px;">금주 best3</div>-->
+    <h5 th:style="${'color:blue; text-shadow: 4px 4px 3px skyblue;'}">금주 best3</h5>
+
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">학교별 대항전 어떰?</h5>
+                <p class="card-text">비밀이</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">이번에 NFT 부트캠프</h5>
+                <p class="card-text">세계 최강 디자이너</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">내 플젝 좀</h5>
+                <p class="card-text">비밀</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+    <br>
+    <br>
+
+
+<!--  <div class="col-sm-6">-->
+<!--    <div class="card">-->
+<!--      <div class="card-body">-->
+<!--        &lt;!&ndash;            <h2 th:style="${'color:navy'}" th:text="${univName[0]}+' 페이지입니다'"></h2> &lt;!&ndash; 학교 이름만 출력하기 &ndash;&gt;&ndash;&gt;-->
+<!--        <h5 class="card-title">자유롭게 전국 대학 학생들과 소통해보세요!</h5>-->
+<!--&lt;!&ndash;        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>&ndash;&gt;-->
+<!--        &lt;!&ndash;            게시판으로 넘어가기 .... NFT_SearchUnivController에서 라우팅 &ndash;&gt;-->
+<!--        <a th:href="@{'/communityAll'+'/new'}" class="btn btn-danger">글쓰기</a>-->
+<!--        &lt;!&ndash;            <a th:href="@{/searchUniv/가천대학교}">&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+  <button type="button" class="btn btn-danger" style="width:70px; height: 40px; margin-bottom:7px;">
+    <a th:href="@{'/communityAll'+'/new'}" style="color:whitesmoke;">글쓰기</a>
+  </button>
+
+<!--th:each=num:${#numbers.sequence(1,boardList.size())}"-->
+  <table style="border:1px #000;" class="table table-hover table-striped">
+    <thead>
+    <tr>
+      <th class="one wide">번호</th>
+      <th class="ten wide">글제목</th>
+      <th class="two wide">작성자</th>
+      <th class="three wide">작성일</th>
+        <th class="four wide">수정일</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <!-- CONTENTS !-->
+    <tr th:each="board : ${boardList}">
+<!--      <div th:with="num=${#numbers.sequence(1,5)}"></div>-->
+      <td>
+<!--        <span th:text="${board.id}"></span>-->
+        <span th:text="${boardStat.count}"></span> <!-- 페이지 번호를 db에 있는 pk가 아닌 Stat.count로 이용하여 풀기-->
+
+      </td>
+      <td>
+        <a th:href="@{'/communityAll/' + ${board.id}}">
+          <span th:text="${board.title}"></span>
+        </a>
+      </td>
+      <td>
+        <span th:text="${board.writer}"></span>
+      </td>
+      <td>
+        <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+      </td>
+        <td>
+            <span th:text="${#temporals.format(board.modifiedDate, 'yyyy-MM-dd HH:mm')}"></span>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</html>

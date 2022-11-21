@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+
+    <button type="button" class="btn btn-danger" style="width:70px; height: 40px; margin-bottom:7px;">
+        <a th:href="@{'/searchUniv/{name}/board/new'(name=${univName})}" style="color:whitesmoke;">글쓰기</a>
+    </button>
+
+    <!--th:each=num:${#numbers.sequence(1,boardList.size())}"-->
+    <table style="border:1px #000;" class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th class="ten wide">글제목</th>
+            <th class="two wide">작성자</th>
+            <th class="three wide">작성일</th>
+            <th class="four wide">수정일</th>
+            <th class="five wide">작성자 학교</th>
+
+
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <!-- CONTENTS !-->
+<!--        th:if="${board.title=='가천대생'}"-->
+<!--        th:if="${board.univ=='가천대학교'}"-->
+<!--        <tr  th:if="${board.univ=='가천대학교'}" th:each="board : ${boardList}">-->
+<!--        <div th:else="${#strings.equals(board.univ,university[0])}"  th:each="board : ${boardList}">게시글이 없습니다</div>-->
+
+        <tr th:if="${#strings.equals(board.univ,university[0])}" th:each="board : ${boardList}">
+<!--        <p th:if="${#strings.equals(board.univ,university[0])}" th:text="비교성공"></p>-->
+
+            <!--      <div th:with="num=${#numbers.sequence(1,5)}"></div>-->
+            <!--
+            <td>
+                <span th:text="${boardStat.count}"></span>  페이지 번호를 db에 있는 pk가 아닌 Stat.count로 이용하여 풀기-
+
+            </td>
+            -->
+            <td>
+                <a th:href="@{'/searchUniv/{name}/board/' + ${board.id}(name=${univName})}">
+                    <span th:text="${board.title}"></span>
+                </a>
+            </td>
+            <td>
+                <span th:text="${board.writer}"></span>
+            </td>
+            <td>
+                <a th:href="@{'/searchUniv/{name}/board/' + ${board.id}(name=${univName})}">
+                <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                </a>
+            </td>
+            <td>
+                <span th:text="${#temporals.format(board.modifiedDate, 'yyyy-MM-dd HH:mm')}"></span>
+            </td>
+            <td>
+                <span th:text="${board.univ}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+</html>

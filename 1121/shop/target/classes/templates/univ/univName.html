@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+<!--  <h2>${univName}</h2>-->
+<!--  <div th:text="${univName.size()}"></div>-->
+
+  <h2 th:style="${'color:navy'}" th:text="${univName[0]}+' 페이지입니다'"></h2> <!-- 학교 이름만 출력하기 -->
+<!--  <div th:text="${univName}"></div>-->
+  <div>
+    <br>
+    <br>
+    <br>
+  </div>
+
+  <div class="cardcontainer">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+              <h5 class="card-title" th:text="${univName[0]}+' NFT 바로 등록하기'"></h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a th:href="@{'/searchUniv/'+ ${univName[0]}+'/board/new'}" class="btn btn-primary">NFT 업로드</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+<!--            <h2 th:style="${'color:navy'}" th:text="${univName[0]}+' 페이지입니다'"></h2> &lt;!&ndash; 학교 이름만 출력하기 &ndash;&gt;-->
+            <h5 class="card-title" th:text="${univName[0]}+' 게시판으로 이동하기'"></h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<!--            게시판으로 넘어가기 .... NFT_SearchUnivController에서 라우팅 -->
+            <a th:href="@{'/searchUniv/'+ ${univName[0]}+'/board'}" class="btn btn-danger">NFT 게시판</a>
+<!--            <a th:href="@{/searchUniv/가천대학교}">-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/NFT_layout1}">
+
+<div layout:fragment="content">
+<!--  <div>전국 커뮤니티 게시판 글쓰기</div>-->
+  <h4 th:style="${'color:gray; text-shadow: 4px 4px 3px #FFE13C; text-align:center;'}">전국 커뮤니티 게시판 글쓰기</h4>
+  <br>
+
+  <form action="/communityAll/new" method="post"> <!-- SecurityConfig에서 csrf() disable을 해줘야 403에러가 없다 -->
+    <input type="text" name="title" placeholder="제목"> <br>
+    <br>
+    <input type="text" name="writer" PLACEHOLDER="작성인"> <br>
+    <br>
+    <div>내용</div>
+    <textarea name="content" th:style="${'padding: 30px 30px; border-top: 1px solid #73B2B4	;border-bottom: 1px solid #73B2B4	; width:100%; height:300px;'}"></textarea><br>
+  <br>
+    <input type="submit" value="등록">
+  </form>
+
+</div>
+
+</html>
